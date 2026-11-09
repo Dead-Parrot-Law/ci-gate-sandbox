@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+const team = [
+  { name: 'A. Example', role: 'Senior partner, consumer law' },
+  { name: 'B. Sample', role: 'Partner, contracts and employment' },
+  { name: 'C. Placeholder', role: 'Paralegal' },
+];
+---
+<Base title="About">
+  <h1>About us</h1>
+  <p>We opened in 1969 and still answer our own phones. Three of us, no call centre.</p>
+  <ul>
+    {team.map((p) => <li><strong>{p.name}</strong>: {p.role}</li>)}
+  </ul>
+</Base>

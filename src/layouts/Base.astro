@@ -1,0 +1,55 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Dead Parrot Law</title>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">Dead Parrot Law</a>
+      <nav>
+        {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>© Dead Parrot Law. A demo site: nothing here is real, and none of it is legal advice.</footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --ink: #1d2a33;
+    --muted: #5b6b75;
+    --accent: #2f6b2f;
+    --bg: #f7f9fa;
+    --card: #ffffff;
+    font-family: system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  body { margin: 0; }
+  header, footer, main { max-width: 52rem; margin: 0 auto; padding: 1rem; }
+  header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .brand { font-weight: 700; color: var(--accent); text-decoration: none; font-size: 1.2rem; }
+  nav a { margin-left: 1rem; color: var(--ink); }
+  footer { color: var(--muted); font-size: 0.85rem; }
+  .card { background: var(--card); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; box-shadow: 0 1px 3px rgb(0 0 0 / 0.08); }
+  form { display: grid; gap: 0.75rem; max-width: 28rem; }
+  input, textarea, button { font: inherit; padding: 0.5rem; }
+  button { background: var(--accent); color: white; border: 0; border-radius: 6px; cursor: pointer; }
+  .notice { padding: 0.75rem; border-radius: 6px; background: #e8f2e3; }
+</style>

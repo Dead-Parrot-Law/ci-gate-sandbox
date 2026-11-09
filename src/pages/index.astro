@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+const areas = [
+  { title: 'Consumer disputes', text: 'Goods not as described, refunds refused, warranties ignored.' },
+  { title: 'Contracts', text: 'Drafting, reviewing and enforcing agreements for small businesses.' },
+  { title: 'Employment', text: 'Contracts, disputes and settlement agreements.' },
+];
+---
+<Base title="Home">
+  <h1>Plain-speaking lawyers</h1>
+  <p>Dead Parrot Law is a small firm that tells you where you stand, in plain English.</p>
+  {areas.map((a) => (
+    <div class="card">
+      <h2>{a.title}</h2>
+      <p>{a.text}</p>
+    </div>
+  ))}
+  <p>New client? <a href="/contact">Request a callback</a> and we'll get back to you within one working day.</p>
+</Base>

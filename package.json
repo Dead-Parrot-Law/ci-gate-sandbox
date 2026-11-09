@@ -1,0 +1,16 @@
+{
+  "name": "ci-gate-sandbox",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "bun ./dist/server/entry.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "11.1.11",
+    "astro": "7.4.7"
+  }
+}

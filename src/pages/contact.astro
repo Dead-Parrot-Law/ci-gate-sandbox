@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+const sent = Astro.url.searchParams.has('sent');
+---
+<Base title="Contact">
+  <h1>Request a callback</h1>
+  {sent && <p class="notice">Thanks, we'll call you back within one working day.</p>}
+  <form method="post" action="/api/contact">
+    <label>Name <input name="name" required maxlength="100" /></label>
+    <label>Email <input name="email" type="email" required maxlength="200" /></label>
+    <label>Message <textarea name="message" rows="5" required maxlength="2000"></textarea></label>
+    <button type="submit">Send</button>
+  </form>
+</Base>
